@@ -2,7 +2,7 @@
 
 Welcome to the **Rippling Intern Bootcamp 2025** repository! This serves as a minimal starter kit for learning and experimenting with:
 - **Django** (Python)
-- **Next.js** (React)
+- **React**  (with TypeScript)
 - **MongoDB** (via Docker Compose)
 - Development environment in **VSCode** (recommended)
 
@@ -18,7 +18,6 @@ Welcome to the **Rippling Intern Bootcamp 2025** repository! This serves as a mi
 3. [Setting Up the Project](#setting-up-the-project)
 4. [Running Services](#running-services)
    - [Backend: Django](#backend-django)
-   - [Frontend: Next.js](#frontend-nextjs)
    - [Database: MongoDB via Docker Compose](#database-mongodb-via-docker-compose)
 5. [Verification of Installation](#verification-of-installation)
 6. [Development Workflow](#development-workflow)
@@ -29,9 +28,9 @@ Welcome to the **Rippling Intern Bootcamp 2025** repository! This serves as a mi
    - [Backend](#backend)
       - [Starter 0](#starter-0-changes)
       - [Starter 1](#starter-1-changes)
-   - [Frontend](#frontend-nextjs-1)
 8. [Running Tests (Optional)](#running-tests-optional)
-9. [Further Reading](#further-reading)
+9. [Frontend Setup](#frontend-setup)
+10. [Further Reading](#further-reading)
 
 ---
 
@@ -146,7 +145,7 @@ These are the essential tools you need:
    
    **Why?**
 
-   We use Next.js for our frontend, which requires Node.js. Yarn is a popular package manager for Node.
+   We use React.js for our frontend, which requires Node.js. Yarn is a popular package manager for Node.
 
    **Install**
 
@@ -169,6 +168,7 @@ The python virtual env should be created inside the /bootcamp_backend directory.
 python3 -m venv venv
 source venv/bin/activate   # macOS/Linux or, 
 # on Windows:
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 .\venv\Scripts\activate
 ```
 
@@ -182,13 +182,6 @@ By default, **requirements.txt** includes:
 - **Django**
 - **pymongo** (MongoDB driver)
 
-### Install Frontend Dependencies (if you have a Next.js project)
-
-```bash
-cd frontend
-yarn install
-cd ..
-```
 
 **Check your `.gitignore`**  
 Make sure `venv/` and other temporary files aren’t committed.
@@ -212,25 +205,6 @@ python manage.py runserver 8001
 ```
 
 Open [http://127.0.0.1:8001/hello/](http://127.0.0.1:8001/hello/) to see the **"Hello World"** endpoint.
-
----
-
-### Frontend: Next.js
-
-If your Next.js app is in `frontend/`, navigate to it:
-
-```bash
-cd frontend
-yarn dev --port 3001
-```
-
-The app should be accessible at [http://localhost:3001](http://localhost:3001).
-
-If you haven’t created a Next.js project yet, you can do so with:
-
-```bash
-yarn create next-app frontend
-```
 
 ---
 
@@ -397,10 +371,6 @@ Send the request. You should see a JSON response:
 
 #### Congratulations! you wrote your first own API. 
 
-#### Frontend (Next.js):
-1. Edit a component in `pages/index.js`.
-2. Save and see the changes immediately at [http://localhost:3001](http://localhost:3001).
-
 ---
 
 ### Pushing Your First Change
@@ -425,13 +395,6 @@ cd bootcamp_backend
 python manage.py test
 ```
 
-### Next.js Tests
-
-```
-cd frontend
-yarn test
-```
-
 ### Docker
 ```
 docker compose ps
@@ -439,10 +402,19 @@ docker compose ps
 
 ---
 
+## Frontend Setup
+
+The frontend setup instructions are located in the `frontend` directory. You don't need to set up the frontend until later parts of the course, but feel free to try it earlier and play around.
+
+Head over to the frontend README to check it out:
+[Frontend README](frontend/README.md)
+
+
 ## Further Reading
 
 - Django: https://docs.djangoproject.com/en/3.2/
-- Next.js: https://nextjs.org/docs
+- React: https://react.dev/learn
+- Create react app: https://create-react-app.dev/docs/getting-started
 - MongoDB: https://docs.mongodb.com/
 - Docker Compose: https://docs.docker.com/compose/
 
