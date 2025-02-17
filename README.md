@@ -1,6 +1,6 @@
 # Intern Bootcamp 2025
 
-Welcome to the **Rippling Intern Bootcamp 2025** repository! This serves as a minimal starter kit for learning and experimenting with:
+Welcome to the **Interneers Lab 2025** repository! This serves as a minimal starter kit for learning and experimenting with:
 - **Django** (Python)
 - **React**  (with TypeScript)
 - **MongoDB** (via Docker Compose)
@@ -70,26 +70,30 @@ These are the essential tools you need:
    
    **Install**:  
    ```bash
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-2. **Python 3**  
+2. **Python 3.13** (if you need Python scripts or a backend environment)
+   - **Why 3.13?**
 
-   **Why**
-   Django (our backend framework) requires Python 3.
+      This is the recommended version for the intern bootcamp’s Python-related tasks, ensuring consistency across projects.
+   - **Install or Upgrade**:  
+     
+     - macOS (with Homebrew): `brew install python`  
+     - Windows: [Download from python.org](https://www.python.org/downloads/) (ensure it’s 3.13)  
+   - **Verify**:
+     
+     ```bash
+     python3 --version
+     ```
+     You should see something like `Python 3.13.x`.
 
-   **Install**
-
-   - On macOS (with Homebrew): `brew install python3`  
-   - [Windows Install Guide](https://www.python.org/downloads/)
-
-   **Verify**
-   You can verify for installation and version with 
+   If you are getting something else , please update `/.bashrc` or `/.zshrc` to have alias with following
    ```
-   python --version
+   vim ~/.zshrc   # or any preferred editor of your choice
+   alias python3 = "/opt/homebrew/bin/python3.13"
+   :wq      # save the file with any equivalent command
+   source ~/.zshrc # or ~/.bashrc
    ```
-
-   It should return something like `Python 3.x.x`
-
 
 3. **virtualenv** or built-in `venv`  
 
@@ -98,17 +102,23 @@ These are the essential tools you need:
    A virtual environment keeps project dependencies isolated from your system Python.
 
    **Install**
-   - `pip install virtualenv` (if needed)  
+   - `pip3 install virtualenv` (if needed)  
    - or use `python3 -m venv venv`
 
    **Tutorial**
    Refer to the [Virtualenv Tutorial](https://www.youtube.com/watch?v=eDe-z2Qy9x4) to learn more about why virtual environments matter.
 
    **Verify**
+   
+   - Try to activate the venv using the following command
+      ```
+      source venv/bin/activate         # macOS/Linux
+      .\venv\Scripts\activate          # Windows
+      ```
 
-   In most of the machines, your terminal prompt will be prefixed with something like (venv) (or whatever you named the virtual environment).
+   - In most of the machines, your terminal prompt will be prefixed with something like (venv) (or whatever you named the virtual environment).
 
-   ![alt text](image.png)
+      ![alt text](image.png)
 
    Check Which Python Is Being Used:
 
@@ -165,6 +175,7 @@ These are the essential tools you need:
 
 The python virtual env should be created inside the /bootcamp_backend directory. Run the following commands inside the `bootcamp_backend` directory. 
 ```bash
+cd bootcamp_backend
 python3 -m venv venv
 source venv/bin/activate   # macOS/Linux or, 
 # on Windows:
@@ -175,7 +186,8 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ### Install Python Dependencies
 
 ```bash
-pip install -r requirements.txt
+cd backend
+pip3 install -r requirements.txt
 ```
 
 By default, **requirements.txt** includes:
@@ -210,26 +222,7 @@ Open [http://127.0.0.1:8001/hello/](http://127.0.0.1:8001/hello/) to see the **"
 
 ### Database: MongoDB via Docker Compose
 
-In the project root, you’ll find (or create) a `docker-compose.yaml`. For example:
-
-```yaml
-version: '3.8'
-
-services:
-  mongodb:
-    image: mongo:latest
-    container_name: intern_bootcamp_mongodb
-    ports:
-      - '27018:27017'
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
-    volumes:
-      - mongodb_data:/data/db
-
-volumes:
-  mongodb_data:
-```
+In the project root, you’ll find (or create) a `docker-compose.yaml`.
 
 To start MongoDB via Docker Compose:
 
@@ -338,8 +331,9 @@ source venv/bin/activate         # macOS/Linux
 ```
 
 Install dependencies (if you haven't):
-```
-pip install -r requirements.txt
+```bash
+cd bootcamp_backend  # if you are not inside bootcamp_backend already.
+pip3 install -r requirements.txt
 ```
 Navigate to your Django project folder (e.g., cd bootcamp_backend) and run the server on port 8001:
 ```
