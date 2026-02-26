@@ -46,7 +46,10 @@ class ProductViewSet(viewsets.ViewSet):
             product_data['id'] = product_id
             
             IN_MEMORY_PRODUCTS[product_id] = product_data
-            return Response(product_data, status=status.HTTP_201_CREATED)
+            return Response(
+                ProductSerializer(product_data).data,
+                status=status.HTTP_201_CREATED
+            )
         
         return Response(format_error_response(serializer.errors), status=status.HTTP_400_BAD_REQUEST)
 
@@ -54,7 +57,7 @@ class ProductViewSet(viewsets.ViewSet):
         """Fetch a single product by its ID."""
         product = IN_MEMORY_PRODUCTS.get(pk)
         if product:
-            return Response(product)
+            return Response(ProductSerializer(product).data)
         return Response(
             {"success": False, "message": f"Product with ID '{pk}' not found."}, 
             status=status.HTTP_404_NOT_FOUND
@@ -73,7 +76,7 @@ class ProductViewSet(viewsets.ViewSet):
             product_data = serializer.validated_data
             product_data['id'] = pk 
             IN_MEMORY_PRODUCTS[pk] = product_data
-            return Response(product_data)
+            return Response(ProductSerializer(product_data).data)
             
         return Response(format_error_response(serializer.errors), status=status.HTTP_400_BAD_REQUEST)
 

@@ -74,19 +74,11 @@ class ProductAPITests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(len(IN_MEMORY_PRODUCTS), 0)
     
-    def test_6_dynamic_price_check(self):
-   
-        response = self.client.post(self.base_url, self.valid_payload, format='json')
-    
-        actual_price = float(self.valid_payload['price'])
+    def test_6_negative_price_validation(self):
+        invalid_payload = self.valid_payload.copy()
+        invalid_payload['price'] = "-10.00"
 
-        if actual_price < 0:
-            print("\n=== VALIDATION ERROR CAUGHT ===")
-            print(f"Status Code: {response.status_code}")
-            print(f"Error Data: {response.data}")
-            print("================================\n")
-            
-            self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-            self.assertIn('price', response.data['details'])
-        else:
-            self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        response = self.client.post(self.base_url, invalid_payload, format='json')
+
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertIn('price', response.data['details'])
