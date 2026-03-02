@@ -2,6 +2,8 @@ from app.models.product_model import Product
 from typing import Optional, List
 from datetime import datetime
 
+ALLOWED_SORT_FIELDS = {"created_at", "updated_at", "price", "name"}
+
 
 class ProductRepository:
 
@@ -32,6 +34,11 @@ class ProductRepository:
         if created_to:
             query = query.filter(created_at__lte=created_to)
 
+        sort_field = sort.lstrip("-")
+
+        if sort_field not in ALLOWED_SORT_FIELDS:
+            sort = "-created_at" 
+
         return query.order_by(sort).skip(skip).limit(limit)
 
     @staticmethod
@@ -45,7 +52,8 @@ class ProductRepository:
             return None
 
         for key, value in data.items():
-            setattr(product, key, value)
+            if value is not None:  
+                setattr(product, key, value)
 
         product.save()
         return product
