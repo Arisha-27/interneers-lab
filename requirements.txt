@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+mongoengine
+pydantic
+python-dotenv
+pytest
+httpx
