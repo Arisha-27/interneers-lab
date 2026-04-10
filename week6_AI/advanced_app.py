@@ -176,7 +176,7 @@ if generate_btn and gemini_key:
                 scenario_hint=scenario_info["hint"],
             )
         except Exception as e:
-            st.error(f"❌ Gemini API error: {e}")
+            st.error(f" Gemini API error: {e}")
             st.stop()
 
     with st.spinner("🔍 Validating with Pydantic..."):
@@ -190,9 +190,9 @@ if generate_btn and gemini_key:
     col1.success(f"✅ Generated: {len(raw_products)}")
     col2.success(f"✅ Valid: {len(valid_products)}")
     if failed_products:
-        col3.error(f"❌ Failed: {len(failed_products)}")
+        col3.error(f" Failed: {len(failed_products)}")
     else:
-        col3.success("❌ Failed: 0")
+        col3.success(" Failed: 0")
 
 if "valid_products" in st.session_state and st.session_state["valid_products"]:
     valid   = st.session_state["valid_products"]
