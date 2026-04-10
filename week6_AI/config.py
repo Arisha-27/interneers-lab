@@ -6,7 +6,7 @@ load_dotenv()
 def get_env_variable(name: str) -> str:
     value = os.getenv(name)
     if not value:
-        raise ValueError(f"❌ Missing required environment variable: {name}")
+        raise ValueError(f" Missing required environment variable: {name}")
     return value
 
 GEMINI_API_KEY = get_env_variable("GEMINI_API_KEY")
