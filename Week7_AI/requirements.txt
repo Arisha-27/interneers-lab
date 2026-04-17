@@ -1,0 +1,8 @@
+sentence-transformers==2.7.0
+numpy
+scikit-learn
+matplotlib
+pandas
+streamlit
+plotly
+torch
