@@ -1,0 +1,88 @@
+.section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 64px 48px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.sectionLabel {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--color-espresso);
+  margin-top: 6px;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  padding: 7px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 40px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+  background: var(--color-warm-white);
+  transition: all var(--transition);
+}
+
+.filterBtn:hover {
+  border-color: var(--color-bark);
+  color: var(--color-bark);
+}
+
+.filterBtn.active {
+  background-color: var(--color-espresso);
+  border-color: var(--color-espresso);
+  color: var(--color-cream);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+  align-items: start;
+}
+
+.emptyState {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 0;
+  color: var(--color-text-muted);
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 24px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

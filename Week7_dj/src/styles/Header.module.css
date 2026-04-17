@@ -1,0 +1,132 @@
+.hero {
+  background-color: var(--color-espresso);
+  color: var(--color-cream);
+  padding: 80px 48px 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: rgba(184, 92, 56, 0.12);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: 30%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 32px;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--color-warm-white);
+}
+
+.titleEmphasis {
+  font-style: italic;
+  color: var(--color-stone);
+}
+
+.subtitle {
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--color-stone);
+  max-width: 420px;
+  line-height: 1.7;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-end;
+}
+
+.stat {
+  text-align: right;
+}
+
+.statNumber {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-warm-white);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--color-taupe);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 24px 52px;
+  }
+
+  .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .stat {
+    text-align: left;
+  }
+}
