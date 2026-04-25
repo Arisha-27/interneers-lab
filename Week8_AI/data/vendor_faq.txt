@@ -1,0 +1,72 @@
+VENDOR FAQ - ToyWorld Supplier Portal
+======================================
+Last Updated: February 2025
+
+GETTING STARTED
+---------------
+Q: How do I become an approved vendor for ToyWorld?
+A: To become an approved vendor, complete the Vendor Application Form on our Supplier Portal at vendors.toyworld.com. You will need to provide: business registration documents, product catalog with pricing, proof of liability insurance (minimum $2M coverage), and safety certification documents for all toys (ASTM F963 or EN 71 compliance required). The review process takes 2-4 weeks.
+
+Q: What certifications are required for toy products?
+A: All toys must comply with the Consumer Product Safety Improvement Act (CPSIA). Required certifications include: ASTM F963 (US standard), EN 71 (European standard if applicable), REACH compliance for chemical safety, and Lead and phthalate testing certificates. Products for children under 3 must also include choking hazard assessments.
+
+Q: How long does vendor onboarding take?
+A: Standard onboarding takes 4-6 weeks from approval. This includes: contract signing (Week 1), EDI/system integration setup (Weeks 2-3), first purchase order processing (Week 4), and first delivery to our warehouse (Weeks 5-6).
+
+PRICING AND PAYMENTS
+--------------------
+Q: What are ToyWorld's payment terms?
+A: Standard payment terms are Net 30 from date of invoice. For new vendors in the first 6 months, terms are Net 15. Early payment discounts of 2% are available if payment is made within 10 days (2/10 Net 30 terms). Payments are made via ACH bank transfer or check.
+
+Q: How does ToyWorld handle pricing changes?
+A: Vendors must provide 60 days written notice for any price increases. Price decreases can take effect immediately. All price changes must be submitted through the Vendor Portal and approved by our Purchasing team before taking effect.
+
+Q: Are there any fees charged to vendors?
+A: ToyWorld charges the following vendor fees: warehouse handling fee of 1.5% of invoice value, EDI transaction fee of $0.50 per transaction, and a marketing development fund (MDF) contribution of 2% for vendors with annual sales above $500,000.
+
+INVENTORY AND ORDERS
+--------------------
+Q: What is the minimum order quantity (MOQ) for purchase orders?
+A: MOQs vary by product category. Standard toys: minimum $500 per SKU per order. Premium/licensed products: minimum $1,000 per SKU. Seasonal items: minimum $2,000 per SKU during peak ordering periods (July-September for holiday stock).
+
+Q: How should inventory be labeled and packaged for ToyWorld warehouse?
+A: Each unit must have: a barcode (UPC or EAN), ToyWorld item number on the outer carton, country of origin label, age grading and safety warnings per CPSIA, and carton dimensions/weight on the shipping label. Cases must be palletized according to our palletization guide (available on Vendor Portal).
+
+Q: What is the lead time ToyWorld expects for orders?
+A: Standard lead time expectations: domestic vendors: 5-10 business days, international vendors: 21-45 days depending on origin country, and custom/licensed products: 60-90 days. Lead times must be confirmed in your vendor profile and kept up to date.
+
+Q: How does ToyWorld handle purchase order changes?
+A: Purchase orders can be modified up to 48 hours after issuance at no charge. Changes after 48 hours may incur a $50 administrative fee. Orders cannot be cancelled once they have entered production or shipped.
+
+QUALITY AND COMPLIANCE
+-----------------------
+Q: What happens if a product fails quality inspection at ToyWorld's warehouse?
+A: Products that fail inspection are placed in a quarantine area. You will be notified within 2 business days with photos and a detailed failure report. Options include: vendor picks up and replaces the shipment, ToyWorld returns at vendor's cost, or disposal (for non-salvageable items) with a disposal fee charged to vendor.
+
+Q: Does ToyWorld conduct factory audits?
+A: Yes, for vendors with annual purchases above $250,000, ToyWorld reserves the right to conduct or commission factory audits annually. Audits assess: working conditions, quality control processes, environmental practices, and safety compliance. Audit costs are shared equally between ToyWorld and the vendor.
+
+Q: What is ToyWorld's policy on product recalls?
+A: In the event of a recall, vendors must: notify ToyWorld within 24 hours of being informed of any safety issue, cooperate fully with CPSC investigations, cover all costs associated with the recall including consumer notifications, return logistics, and refunds. ToyWorld will pause all orders from the affected vendor until the recall is resolved.
+
+SHIPPING AND LOGISTICS
+-----------------------
+Q: Which carriers does ToyWorld accept for inbound shipments?
+A: Preferred carriers: UPS, FedEx, and DHL for small parcel. For LTL and FTL freight: XPO Logistics, Old Dominion, and Estes Express. All shipments must include an ASN (Advance Shipment Notice) submitted through the Vendor Portal at least 24 hours before delivery.
+
+Q: Where should vendors ship to?
+A: Primary warehouse: ToyWorld Distribution Center, 456 Commerce Drive, Newark, NJ 07102. West Coast overflow: ToyWorld West, 789 Logistics Blvd, Ontario, CA 91761. Always confirm the destination warehouse on the purchase order, as some orders may be drop-shipped directly to store locations.
+
+Q: What are the warehouse receiving hours?
+A: Newark DC: Monday-Friday, 7am-4pm EST. Ontario DC: Monday-Friday, 8am-5pm PST. Deliveries outside these hours require prior approval. No deliveries are accepted on public holidays.
+
+VENDOR PORTAL AND SUPPORT
+--------------------------
+Q: How do I access the Vendor Portal?
+A: Access the portal at vendors.toyworld.com. Login credentials are provided during onboarding. For technical issues, contact vendor-support@toyworld.com or call the Vendor Helpdesk at 1-888-TOY-VEND (Mon-Fri, 8am-5pm EST).
+
+Q: Who is my vendor relationship manager?
+A: Each vendor is assigned a dedicated Vendor Relationship Manager (VRM) during onboarding. Your VRM's contact information is listed in your Vendor Portal profile. If you are unsure who your VRM is, contact vendor-support@toyworld.com.
+
+Q: How do I submit invoices?
+A: All invoices must be submitted electronically through the Vendor Portal within 5 days of shipment. Invoices must reference the ToyWorld PO number. Paper invoices are not accepted and will be returned. For EDI-enabled vendors, invoices should be transmitted via the 810 transaction set.
