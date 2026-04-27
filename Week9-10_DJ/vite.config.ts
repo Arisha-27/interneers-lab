@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { fileURLToPath } from 'url';
 
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': '/Users/arisharizwan/Week9-10_DJ/Week9-10_DJ/inventory-app/src',
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
   server: {

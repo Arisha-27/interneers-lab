@@ -3,7 +3,6 @@ import { useInventory } from '../context/InventoryContext';
 import ProductCard from '../components/products/ProductCard';
 import ProductForm from '../components/products/ProductForm';
 import { Modal } from '../components/ui/Modal';
-import { Button } from '../components/ui/Button';
 import { Product } from '../types';
 import { Plus, Search, Filter, Package } from 'lucide-react';
 

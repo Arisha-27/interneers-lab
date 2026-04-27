@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Package, BarChart3, FileText, TrendingUp } from 'lucide-react';
+import { LayoutDashboard, Package, BarChart3, TrendingUp } from 'lucide-react';
 
 const navItems = [
   { to: '/', icon: LayoutDashboard, label: 'Dashboard' },
@@ -35,8 +35,12 @@ const Sidebar: React.FC = () => (
             }`
           }
         >
-          <Icon size={18} className={({ isActive }) => (isActive ? 'text-brand-400' : 'text-dark-500')} />
-          {label}
+          {({ isActive }) => (
+            <>
+              <Icon size={18} className={isActive ? 'text-brand-400' : 'text-dark-500'} />
+              {label}
+            </>
+          )}
         </NavLink>
       ))}
     </nav>

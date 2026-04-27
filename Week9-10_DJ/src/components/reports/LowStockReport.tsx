@@ -107,7 +107,7 @@ const LowStockReport: React.FC = () => {
                       <span className="font-bold text-dark-100 text-lg">{c.category}</span>
                       <p className="text-sm text-dark-400 mt-1">{c.lowCount} of {c.total} products low</p>
                     </div>
-                    <Badge variant={c.percentage >= 50 ? 'danger' : 'warning'} className="px-3 py-1 text-sm shadow-lg">{c.percentage.toFixed(0)}%</Badge>
+                    <Badge variant={c.percentage >= 50 ? 'danger' : 'warning'}>{c.percentage.toFixed(0)}%</Badge>
                   </div>
                   <div className="w-full bg-dark-900 rounded-full h-3 shadow-inner overflow-hidden border border-dark-700">
                     <div className={`h-3 rounded-full transition-all duration-1000 ${c.percentage >= 50 ? 'bg-accent-rose' : 'bg-accent-amber'}`} style={{ width: `${Math.min(c.percentage, 100)}%` }} />

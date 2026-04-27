@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Product } from '../../types';
-import { Button } from '../ui/Button';
 
 const CATEGORIES = ['Electronics', 'Furniture', 'Sports', 'Books', 'Stationery', 'Clothing', 'Food', 'Other'];
 

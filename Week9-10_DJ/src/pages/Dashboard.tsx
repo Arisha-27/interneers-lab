@@ -80,7 +80,7 @@ const Dashboard: React.FC = () => {
                   formatter={(value: number) => [`$${value.toLocaleString()}`, 'Value']}
                 />
                 <Bar dataKey="value" radius={[4, 4, 0, 0]}>
-                  {chartData.map((entry, index) => (
+                  {chartData.map((_, index) => (
                     <Cell key={`cell-${index}`} fill={index === 0 ? '#3B82F6' : '#4B5563'} />
                   ))}
                 </Bar>
