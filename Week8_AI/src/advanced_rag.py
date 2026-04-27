@@ -55,7 +55,7 @@ def get_all_products() -> list[dict]:
 def _is_inventory_query(question: str) -> bool:
     """Detect if the user is asking about stock, price, or availability."""
     keywords = ["stock", "available", "availability", "price", "cost",
-                "how much", "in store", "where", "aisle", "location",
+                "how much", "in store", "aisle", "location",
                 "buy", "purchase", "order", "out of stock"]
     q = question.lower()
     return any(kw in q for kw in keywords)
@@ -63,7 +63,7 @@ def _is_inventory_query(question: str) -> bool:
 
 def _is_recommendation_query(question: str) -> bool:
     """Detect if the user is asking for a recommendation / comparison across products."""
-    keywords = ["recommend", "suggest", "under", "budget", "cheapest", "best",
+    keywords = ["recommend", "suggest", "budget", "cheapest", "best",
                 "compare", "which toy", "all products", "what toys"]
     q = question.lower()
     return any(kw in q for kw in keywords)
@@ -129,18 +129,26 @@ def ask_with_stock(question: str) -> dict:
     Combined RAG + DB answer.
     Returns dict with 'answer', 'doc_chunks', 'stock_info', 'needs_inventory'.
     """
-    needs_inventory = _is_inventory_query(question) or _is_recommendation_query(question)
+    is_inv = _is_inventory_query(question)
+    is_rec = _is_recommendation_query(question)
+
+    potential_stock_hits = get_stock_info(question)
+    has_product_match = len(potential_stock_hits) > 0
+
+    needs_inventory = False
+    stock_hits = []
+
+    if is_rec:
+        needs_inventory = True
+        stock_hits = potential_stock_hits if potential_stock_hits else get_all_products()
+    elif is_inv and has_product_match:
+        needs_inventory = True
+        stock_hits = potential_stock_hits
 
     chunks = retrieve_relevant_chunks(question, top_k=3)
     context = format_context(chunks)
 
-    stock_hits = []
-    if needs_inventory:
-        stock_hits = get_stock_info(question)
-        if _is_recommendation_query(question) and not stock_hits:
-            stock_hits = get_all_products()
-
-    inventory_text = _format_inventory_block(stock_hits) if stock_hits else "Not requested for this query."
+    inventory_text = _format_inventory_block(stock_hits) if needs_inventory else "Not requested for this query."
 
     answer = chain.invoke({
         "context": context,
@@ -151,7 +159,7 @@ def ask_with_stock(question: str) -> dict:
     return {
         "answer": answer,
         "doc_chunks": chunks,
-        "stock_info": stock_hits if needs_inventory else [],
+        "stock_info": stock_hits,
         "needs_inventory": needs_inventory,
     }
 

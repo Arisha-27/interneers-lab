@@ -53,11 +53,7 @@ def retrieve_and_format(question: str) -> dict:
 def build_rag_chain():
     """Build and return the RAG chain."""
     chain = (
-        RunnableLambda(lambda x: {
-            "context": format_context(retrieve_relevant_chunks(x["question"], top_k=3)),
-            "question": x["question"],
-        })
-        | prompt
+        prompt
         | llm
         | StrOutputParser()
     )
@@ -73,7 +69,10 @@ def ask(question: str) -> dict:
     """
     retrieved = retrieve_and_format(question)
     chain = build_rag_chain()
-    answer = chain.invoke({"question": question})
+    answer = chain.invoke({
+        "question": retrieved["question"],
+        "context": retrieved["context"]
+    })
     return {
         "answer": answer,
         "chunks": retrieved["chunks"],
