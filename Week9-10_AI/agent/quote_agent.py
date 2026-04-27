@@ -29,11 +29,26 @@ def _run_calculate_quote(args):
         if not policy["approved"]:
             result["policy_warning"] = policy["warning"]
     return json.dumps(result, indent=2)
+
+def _run_get_full_quote(args):
+    try:
+        parts = args.split(",")
+        if len(parts) != 2:
+            return json.dumps({"error": "Format: 'keyword, quantity'"})
+        keyword = parts[0].strip()
+        try:
+            qty = int(parts[1].strip())
+        except ValueError:
+            return json.dumps({"error": "Quantity must be an integer"})
+        return json.dumps(get_full_quote(keyword, qty), indent=2)
+    except Exception as e:
+        return json.dumps({"error": str(e)})
+
 TOOLS = {
     "get_product_info": _run_get_product_info,
     "check_inventory":  _run_check_inventory,
     "calculate_quote":  _run_calculate_quote,
-    "get_full_quote":   lambda args: json.dumps(get_full_quote(*[x.strip() for x in args.split(",")]), indent=2) if "," in args else json.dumps({"error": "Format: 'keyword, quantity'"}),
+    "get_full_quote":   _run_get_full_quote,
 }
 SYSTEM_PROMPT = """You are a Quote Agent. USE MINIMAL STEPS to answer.
 PRIMARY TOOL (Use this whenever possible to save time/quota):
