@@ -1,0 +1,193 @@
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 27, 24, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+
+.modalBackdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modalContent {
+  background: var(--color-warm-white);
+  border-radius: var(--radius-md);
+  width: 90%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(20px);
+  transition: transform var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.modalBackdrop.open .modalContent {
+  transform: translateY(0);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-sand);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 10;
+  color: var(--color-espresso);
+  transition: background var(--transition);
+}
+
+.closeBtn:hover {
+  background: var(--color-stone);
+}
+
+.modalGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 500px;
+}
+
+@media (max-width: 768px) {
+  .modalGrid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+}
+
+.imageColumn {
+  background: var(--color-sand);
+}
+
+.imageColumn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .imageColumn img {
+    height: 300px;
+  }
+}
+
+.infoColumn {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.category {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-espresso);
+  line-height: 1.2;
+}
+
+.price {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-espresso);
+  margin-top: 4px;
+}
+
+.description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.detailRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detailLabel {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.detailValue {
+  font-size: 14px;
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.btnPrimary {
+  flex: 1;
+  padding: 16px 24px;
+  background-color: var(--color-espresso);
+  color: var(--color-cream);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  transition: background-color var(--transition);
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background-color: var(--color-bark);
+}
+
+.btnPrimary:disabled {
+  background-color: var(--color-stone);
+  cursor: not-allowed;
+}
+
+.sku {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: 8px;
+}
