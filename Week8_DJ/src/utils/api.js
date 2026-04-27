@@ -28,6 +28,8 @@ const SEED_PRODUCTS = [
 
 const LS_CATS = 'pm_categories';
 const LS_PRODS = 'pm_products';
+const LS_VERSION = 'pm_schema_version';
+const CURRENT_VERSION = '1';
 
 function load(key, seed) {
   try {
@@ -43,32 +45,12 @@ function save(key, data) {
 function initStore() {
   const existingCats = localStorage.getItem(LS_CATS);
   const existingProds = localStorage.getItem(LS_PRODS);
+  const storedVersion = localStorage.getItem(LS_VERSION);
 
-  if (!existingCats) {
-    save(LS_CATS, SEED_CATEGORIES);
-  }
-
-
-  let shouldUpdateProds = !existingProds || !existingCats;
-  if (existingProds && existingCats) {
-    try {
-      const prods = JSON.parse(existingProds);
-      const cats = JSON.parse(existingCats);
-
-      const lamp = prods.find(p => p.id === 'p-13');
-      const isOldLamp = lamp && lamp.image.includes('photo-1507473885765-e6ed657f9971');
-      
-      if (!cats.some(c => c.id === 'cat-5') || prods.length < 15 || !prods.some(p => p.image) || isOldLamp) {
-        shouldUpdateProds = true;
-      }
-    } catch (e) {
-      shouldUpdateProds = true;
-    }
-  }
-
-  if (shouldUpdateProds) {
+  if (!existingCats || !existingProds || storedVersion !== CURRENT_VERSION) {
     save(LS_CATS, SEED_CATEGORIES);
     save(LS_PRODS, SEED_PRODUCTS);
+    localStorage.setItem(LS_VERSION, CURRENT_VERSION);
   }
 }
 
@@ -161,8 +143,8 @@ export const productApi = {
       ...p, ...data,
       name: data.name?.trim() || p.name,
       sku:  data.sku?.trim()  || p.sku,
-      price: parseFloat(data.price) || p.price,
-      stock: parseInt(data.stock)   || 0,
+      price: data.price === undefined ? p.price : parseFloat(data.price) || 0,
+      stock: data.stock === undefined ? p.stock : parseInt(data.stock, 10) || 0,
     } : p);
     save(LS_PRODS, updated);
     return updated.find(p => p.id === id);
